@@ -25,7 +25,6 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
 
         equations[str(i)] = old_list
 
-    
     no_of_iterations = 4 ** (len(numbers_on_left_side)-1)
     print(no_of_iterations)
 
@@ -33,9 +32,8 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
     for i in range(no_of_iterations):
         equations_new = equations_new.append(equations.head(1))
         
-    # insert the operators  
-    operator_list = create_operators(len(numbers_on_left_side)-1)
-
+    # Insert the operators  
+    operator_list = create_operators(len(numbers_on_left_side) -1 )
 
     for item in range(len(operator_list)):
         test_equation = ""
@@ -52,9 +50,10 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
             
     return operator_list, equations_new
 
+
 def create_operators(required_no):
-    i=0
-    somelist=[]
+    i = 0
+    somelist = []
     l = ['+', '-', '*', '/'] 
     operator_set = []
     for j in range(required_no):  # * 2 = 16; * 3 = #64; *4 = 256, ...
@@ -62,7 +61,7 @@ def create_operators(required_no):
     
     # Cartesian product
     for element in itertools.product(*somelist):
-        i+=1
+        i += 1
         operator_set.append(element)
     print(i)
     return operator_set
