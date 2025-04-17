@@ -1,3 +1,8 @@
+"""
+This code was written in 2020.
+It's a solver for the lh (cargo) interview process.
+"""
+
 import pandas as pd
 import itertools
 
@@ -10,9 +15,9 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
         old_list = []
         
         try:
-            if isinstance(numbers_on_left_side[i+1], int): # operator will be appended only if there is one more value on left side
+            if isinstance(numbers_on_left_side[i+1], int):  # operator will be appended only if there is one more value on left side
                 for o in range(len(operators)):
-                    old_list.append(str(numbers_on_left_side[i])) #+ str(operators[o]))
+                    old_list.append(str(numbers_on_left_side[i]))  # + str(operators[o]))
 
         except IndexError:
             for o in range(len(operators)):
@@ -30,11 +35,8 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
     for i in range(no_of_iterations):
         equations_new = equations_new.append(equations.head(1))
         
-    #print(equations_new)
-
     # insert the operators  
     operator_list = create_operators(len(numbers_on_left_side)-1)
-    #print(my_set)
 
     """
     a = equations_new.head(1)['0'] + operator_list[5][0] #6+
@@ -48,7 +50,7 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
         test_equation = ""
         for col in range(len(equations_new.columns)):
             if col < len(operator_list[1]):
-                # all rows are equal.... so 
+                # all rows are equal.... so
                 test_equation += equations_new.head(1)[str(col)] + operator_list[item][col]
             else:
                 test_equation += equations_new.head(1)[str(col)]
@@ -56,7 +58,6 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
         # conversion from pandas Series to string includes index and blanks
         if eval(test_equation.to_string()[5:]) == number_on_right_side:
             print('evaluation result: ', test_equation)            
-        #    return test_equation
             
     return operator_list, equations_new
 
