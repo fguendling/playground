@@ -1,2 +1,4 @@
-# lh_cargo_solver
-solver for lh (cargo) interview process.
+# playground
+
+## Contents
+- A solver which was useful in 2020 for the lh (cargo) interview process.
