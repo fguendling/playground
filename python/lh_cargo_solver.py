@@ -1,13 +1,13 @@
 """
 This code was written in 2020.
 It's a solver for the lh (cargo) interview process.
+It has been cleaned up with the help of GitHub Copilot in 2025.
 """
 
 import pandas as pd
 import itertools
 
 def lh_cargo_solver(numbers_on_left_side, number_on_right_side): 
-    output_equation = '?'
     equations = pd.DataFrame()
     operators = ['+','-','*','/']
 
@@ -25,8 +25,6 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
 
         equations[str(i)] = old_list
 
-        if output_equation == number_on_right_side:
-            print('yes')
     
     no_of_iterations = 4 ** (len(numbers_on_left_side)-1)
     print(no_of_iterations)
@@ -38,13 +36,6 @@ def lh_cargo_solver(numbers_on_left_side, number_on_right_side):
     # insert the operators  
     operator_list = create_operators(len(numbers_on_left_side)-1)
 
-    """
-    a = equations_new.head(1)['0'] + operator_list[5][0] #6+
-    b = equations_new.head(1)['1'] + operator_list[5][1] #6-
-    c = equations_new.head(1)['2'] + operator_list[5][2] #4-
-    d = equations_new.head(1)['3'] #2
-    tbe = a[0] + b[0] + c[0] + d[0]
-    """    
 
     for item in range(len(operator_list)):
         test_equation = ""
@@ -66,10 +57,10 @@ def create_operators(required_no):
     somelist=[]
     l = ['+', '-', '*', '/'] 
     operator_set = []
-    for j in range(required_no): # * 2 = 16; * 3 = #64; *4 = 256, ...
+    for j in range(required_no):  # * 2 = 16; * 3 = #64; *4 = 256, ...
         somelist.append(l)
     
-    # cartesian product
+    # Cartesian product
     for element in itertools.product(*somelist):
         i+=1
         operator_set.append(element)
