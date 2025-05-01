@@ -1,1 +1,1 @@
-// smart contract
+// Idea: do something with Smart Contracts?
