@@ -1,10 +1,10 @@
 [package]
 name = "my_smart_contract"
 version = "0.1.0"
-edition = "2021"
+edition = "2025"
 
 [dependencies]
-ink = "4.0.0-rc"
+ink = "5.1.1"
 
 [lib]
 crate-type = ["cdylib"]
